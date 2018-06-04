@@ -3,7 +3,7 @@ body{
 }
 
 .search-container{
-  padding-top: 75px;
+  padding-top: 10px;
   width: 490px;
   display: block;
   margin: 0 auto;
@@ -42,7 +42,7 @@ input#search-bar{
   width: 75px;
   height: 75px;
   top: -62px;
-  right: -10px;
+  right: -40px;
   
 }
 
@@ -64,10 +64,17 @@ html {
     box-sizing: border-box;
   }
 }
-p {
-  margin: 5px 0;
-  font-weight: 300;
+
+
+.page-header {
+    background-position: 50% 75%;
+    background-size: cover;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1rem;
+    min-height: 5vh;
 }
+
 
 /* Background strip at top */
 
@@ -76,11 +83,30 @@ p {
   z-index: 0;
   top: 0;
   width: 100%;
-  height: 300px;
+  height: 600px;
   background-color: #b4c1b4;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
+}
+
+
+/* Search results */
+
+.search__results {
+  top: 75px;
+  padding: 0 20px;
+  width: 80%;
+  margin: 20px auto 0;
+  position: relative;
+  z-index: 1;
+
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    width: 75%;
+    margin-top: 40px;
+  }
 }
 
 /* Generic cards */
@@ -95,111 +121,85 @@ p {
   }
 }
 
-/* Search results */
 
-.search__results {
-  top: 75px;
-  padding: 0 20px;
-  width: 90%;
-  margin: 20px auto 0;
-  position: relative;
-  z-index: 1;
-
-
-  @media screen and (min-width: 768px) {
-    padding: 0;
-    width: 75%;
-    margin-top: 40px;
-  }
-}
 .search-item {
+  width: 100%;
   border-bottom: 1px solid #D3DCE6;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  
-  &:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-  }
-  
-  @media screen and (min-width: 768px) {
-    flex-wrap: no-wrap;
-  }
+  display: table;
 }
-.search-item__content {
-  padding-top: 2px;
-  padding-left: 150px;
-  order: 5;
-  width: 100%;
-  @media screen and (min-width: 600px) {
-    width: auto; 
-  }
-}
+
 .search-item__image {
   order: 1;
-  width: 34px;
-  height: 34px;
-  background-color: red;
+  padding-left: 20px;
+  width: 10%;
+  float: left;
+  display:table-cell;
+
   border-radius: 8px;
-  margin-right: 15px;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  margin-bottom: 10px;
-
   
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 300px) {
     width: 80px;
     height: 80px;
-    margin-bottom: 0;
-  }
-}
-.search-item__button {
-  order: 2;
-  margin-left: auto;
-  @media screen and (min-width: 600px) {
-    order: 10;
   }
 }
 
-/* Labels */
 
-.label {
-  display: inline-block;
-  border-radius: 4px;
-  font-size: 10px;
-  padding: 5px;
-  vertical-align: middle;
-}
-.label--red {
-  background-color: #FF4747;
-  color: #FFFFFF;
+.search-item__content {
+  order:2;
+  padding-left: 100px;
+  width: 40%;
+  float: left;
+  display:table-cell;
+
+  @media screen and (min-width: 300px) {
+    width: auto; 
+  }
 }
 
-/* Buttons - some of the reset-y type styles may be in ext already - like removing borders etc */
+
+.search-item__button{
+  order: 3;
+  padding-left: 1px ;
+  width: 30%;
+  float: right;
+  display:table-cell;
+
+  @media screen and (min-width: 300px) {
+    width: auto;
+    height: 50px; 
+  }
+}
 
 .button {
-  display: inline-block;
+  width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
   text-transform: uppercase;
-  border: 0;
-  border-radius: 8px;
-  background-color: red;
-  font-size: 14px;
-  padding: 22px;
-}
-.button--small {
-  font-size: 10px;
-  padding: 10px;
+  letter-spacing: 2.5px; 
+  font-weight: 500;
+  color: #fff;
+  background-color:   #61b876;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  }
+
+.button:hover {
+  background-color: #001900;
+      box-shadow: 0px 15px 20px rgba(163,183,163)/*(119, 29, 0, 0.73)*/;
+  color: #fff;
+  transform: translateY(-7px);
 }
 
-.button--outline {
-  border: 1px solid #D3DCE6;
-  color: #A1A1A1;
-  background-color: transparent;
-}
+
 
 /* Text modifiers */
 
@@ -222,4 +222,7 @@ p {
 img{
   border-radius: 8px;
 }
-
+ 
+footer{
+  top: 900px;
+}
