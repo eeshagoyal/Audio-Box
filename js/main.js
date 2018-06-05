@@ -2,11 +2,17 @@ const artistURL = "http://www.theaudiodb.com/api/v1/json/1/search.php?s=";
 const albumUrl = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
 const trackUrl = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 
-var artistname = document.getElementById("search-bar");
+var SearchInput = document.getElementById("search-bar");
 var submit = document.getElementById("search-button");
 
 
-function renderList(obj){
+function ArtistPage() {
+	console.log('in artist fn');
+	location.href = "artist.html";
+}
+
+
+function renderList(obj) {
 	return `
 		<li class="result_item">
 			<div class="result_item__image">
@@ -17,8 +23,8 @@ function renderList(obj){
 				<p class="text--medium">
 					${obj.strArtist}
 				</p>
-				<p class="text--muted"> ${obj.strGenre}</p>
 				<p class="text--muted"> ${obj.intFormedYear}</p>
+				<p class="text--muted"> ${obj.strGenre}</p>
 			</div>
 
 			<div class="result_item__button">
@@ -29,87 +35,54 @@ function renderList(obj){
 }
 
 
-function loadcards(){
+function loadcards(event) {
+	// Cancel the default action, if needed
+	event.preventDefault();
 
-	console.log(artistname.value);
 	var request = new XMLHttpRequest();
-	request.open('GET',artistURL + artistname.value );
+	request.open('GET', artistURL + SearchInput.value, true); 
+	//async=true
+	
+	
+	//CONTENT TYPE - main errors !
+	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+	request.setRequestHeader('Accept', 'application/json');
+
+	request.send();
 
 	request.onload = function () {
+		console.log("***********************************************************************");
 		var data = JSON.parse(request.responseText);
-		console.log(data["artists"][0].strArtist);
-
 
 		document.getElementById("result-list").innerHTML = `
-			<ul class="card">
-				${data["artists"].map(renderList).join('')}
-			</ul>
-
-			<div class="text--center">
-			  <p class="text--muted">No more results.</p>
-			</div>	
+				<ul class="card">
+					${data["artists"].map(renderList).join('')}
+				</ul>
+	
+				<div class="text--center">
+				  <p class="text--muted">No more results.</p>
+				</div>	
 			`;
+		/*ViewAlbums.addEventListener("click", ArtistPage);*/
 
 	}
-	request.send();
+	request.onerror = function () {
+		console.log(request);
+	}
 }
 
 
-artistname.addEventListener("keyup", function(event){
+SearchInput.addEventListener("keyup", function (event) {
 	// Cancel the default action, if needed
-  	event.preventDefault();
-  	// Number 13 is the "Enter" key on the keyboard
-  	if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    	submit.click();
+	event.preventDefault();
+	// Number 13 is the "Enter" key on the keyboard
+	if (event.keyCode === 13) {
+		// Trigger the button element with a click
+		submit.click();
 	}
-},false);
-
-submit.addEventListener("click", loadcards,false);
-
-
-
-/*
-
-
-
-
-
-
-artistname.addEventListener("click",function(){
-	console.log(artistname.value);
-	var request = new XMLHttpRequest();
-	request.open('GET',artistURL + artistname.value );
-	request.onload = function () {
-		var data = request.responseText;
-		console.log(data);
-	}
-	request.send();
 });
 
-		
-	
-
-	`
-	
-
-	var data artists.= JSON.parse(artistURL+document.getElementById("search-bar"));
-	fetch(artistURL+document.getElementById("search-bar"))
-	.then((resp) => resp.json())
-	.then (function(data)artists.{
-		let data artists.= data.artists.s;
-*/
-		
+submit.addEventListener("click", loadcards);
 
 
-
-
-/*
-document.getElementByID("app").innerHTML= 'Hello';
-$(document).ready(function(){
-    $("#submit").on('enter'||'click'(function(e){
-        alert("You entered "+('#submit').val());
-    });
-});
-*/
 
