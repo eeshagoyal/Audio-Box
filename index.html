@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AudioBox</title>
+    <title>AudioSearch</title>
 
     <meta name="author" content="Eesha Goyal">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="artist search APP using the audiodb APIs">
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -19,89 +20,59 @@
   	<div class="strip-background">
   		
   		<header class="page-header">
-        	<h1>AudioBox</h1>
+        	<h1>AudioDB Search</h1>
     	</header>
 
-	    <form class="search-container">
 
+	    <form class="wrap">
 	     	<input type="text" id="search-bar" placeholder="Which artist are you looking for ? ">
 	      	
-	      	<a href="#" id="submit"><img class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+	      	<button id="search-button" type="submit">
+       			<i class="fa fa-search" aria-hidden="true"></i>
+    		</button>
 	    </form>
 		
 
 
-		<div class="search__results">
+		<div id="result-list" class="search__results">
+		<!--
 			<ul class="card">
-
-				<li class="search-item">
-					<div class="search-item__image">
-						<img src = "img/100x100.png"/>  
+				<li class="result_item">
+					<div class="result_item__image">
+						<img src ="${data.strArtistThumb}"/>  
 					</div>
 
-					<div class="search-item__content">
+					<div class="result_item__content">
 						<p class="text--medium">
-							SURNAME, Forname
+							${data.strArtist}
 						</p>
-						<p class="text--small text--muted">17 Ryburn Road, Waverley, Rotherham, S60 8AU</p>
+						<p class="text--muted"> ${data.strStyle}</p>
 					</div>
 
-					<div class="search-item__button">
-						<button class="button"> View Albums </button>
-					</div>
-				</li>
-
-				<li class="search-item">
-					<div class="search-item__image">
-						<img src = "img/100x100.png"/>  
-					</div>
-
-					<div class="search-item__content">
-						<p class="text--medium">
-							SURNAME, Forname
-						</p>
-						<p class="text--small text--muted">17 Ryburn Road, Waverley, Rotherham, S60 8AU</p>
-					</div>
-
-					<div class="search-item__button">
-						<button class="button"> View Albums </button>
-					</div>
-				</li>
-
-				<li class="search-item">
-					<div class="search-item__image">
-						<img src = "img/100x100.png"/>  
-					</div>
-
-					<div class="search-item__content">
-						<p class="text--medium">
-							SURNAME, Forname
-						</p>
-						<p class="text--small text--muted">17 Ryburn Road, Waverley, Rotherham, S60 8AU</p>
-					</div>
-
-					<div class="search-item__button">
+					<div class="result_item__button">
 						<button class="button"> View Albums </button>
 					</div>
 				</li>
 			</ul>
-
+		
 			<div class="text--center">
-			  <p class="text--small text--muted">No more results.</p>
-			</div>
+			  <p class="text--muted">No more results.</p>
+			</div>	
+		-->
 		</div>
 
 
-		<br><br><br></br>
-		<footer class = "text--center text--small text--muted">
+		<br><br><br><br>
+		<footer class = "text--center text--muted">
 			<div class="search__results">
 				<p> By<a href="https://www.linkedin.com/in/eeshagoyal/">Eesha Goyal</a></p>
 	            <p class="meta"> This application uses demo key provided by <a href="http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7">TheAudioDB</a></p>
 				<p class=> Copyright &copy; 2018 <a href="https://github.com/eeshagoyal/PrimaSeller-JS-test">source</a>. All rights reserved.</p>
+				<br>
             </div>
 		</footer>
-
 	</div>
+
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
