@@ -1,14 +1,14 @@
 const artistURL = "http://www.theaudiodb.com/api/v1/json/1/search.php?s=";
-const albumUrl = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
-const trackUrl = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
+const albumURL = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
+const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 
 var SearchInput = document.getElementById("search-bar");
 var submit = document.getElementById("search-button");
 
 
-function ArtistPage() {
-	console.log('in artist fn');
-	location.href = "artist.html";
+function ArtistPage(id) {
+	console.log('Artist ID is : '+ id);
+	location.href = "artist.html?"+id;
 }
 
 
@@ -28,7 +28,7 @@ function renderList(obj) {
 			</div>
 
 			<div class="result_item__button">
-				<button class="button"> View Albums </button>
+				<button class="button" onclick="ArtistPage(${obj.idArtist});"> View Albums </button>
 			</div>
 		</li>
 	`;
@@ -36,6 +36,10 @@ function renderList(obj) {
 
 
 function loadcards(event) {
+
+	console.log(SearchInput.value);
+
+
 	// Cancel the default action, if needed
 	event.preventDefault();
 
@@ -51,20 +55,19 @@ function loadcards(event) {
 	request.send();
 
 	request.onload = function () {
-		console.log("***********************************************************************");
+
 		var data = JSON.parse(request.responseText);
+		console.log(data["artists"][0].strArtist);
 
 		document.getElementById("result-list").innerHTML = `
-				<ul class="card">
-					${data["artists"].map(renderList).join('')}
-				</ul>
-	
-				<div class="text--center">
-				  <p class="text--muted">No more results.</p>
-				</div>	
-			`;
-		/*ViewAlbums.addEventListener("click", ArtistPage);*/
-
+					<ul class="card">
+						${data["artists"].map(renderList).join('')}
+					</ul>
+		
+					<div class="text--center">
+					  <p class="text--muted">No more results.</p>
+					</div>	
+				`;
 	}
 	request.onerror = function () {
 		console.log(request);
