@@ -1,4 +1,4 @@
-const artistURL = "http://www.theaudiodb.com/api/v1/json/1/search.php?s=";
+const artistURLbyName = "http://www.theaudiodb.com/api/v1/json/1/search.php?s=";
 const albumURL = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
 const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 
@@ -44,7 +44,7 @@ function loadcards(event) {
 	event.preventDefault();
 
 	var request = new XMLHttpRequest();
-	request.open('GET', artistURL + SearchInput.value, true); 
+	request.open('GET', artistURLbyName + SearchInput.value, true); 
 	//async=true
 	
 	
