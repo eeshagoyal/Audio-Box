@@ -23,6 +23,7 @@ function renderList(obj) {
 				<p class="text--medium">
 					${obj.strArtist}
 				</p>
+				<p class="text--muted"> ${obj.strCountry}</p>
 				<p class="text--muted"> ${obj.intFormedYear}</p>
 				<p class="text--muted"> ${obj.strGenre}</p>
 			</div>
@@ -36,7 +37,9 @@ function renderList(obj) {
 
 
 function loadcards(event) {
-
+	document.getElementById("result-list").innerHTML = `
+	<div class="loader"></div>
+	`;
 	console.log(SearchInput.value);
 
 

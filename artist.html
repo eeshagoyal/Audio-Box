@@ -8,22 +8,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="artist search APP using the audiodb APIs">
 
+    <link rel="stylesheet" type="text/css" href="css/artist.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 
 	
-<body>		
-  	<div class="strip-background">
-  		
-  		<header class="page-header">
-        	<h1>AudioDB Search</h1>
-    	</header>
+<body>	
+	
+	<div class="strip-background">
 		
+		
+		<header class="page-header">
+			<a href="index.html">	
+				<h1>
+					Audio Box 
+	    		
+	       			<i class="fa fa-search" aria-hidden="true"></i>
+	       		</h1>
+	    	</a>
+	    </header>
+	    
+
+
 		<div id="artist_details"> </div>
-		<div id="result-list" class="search__results"> </div>
+		<div id="result-list" > </div>
+		<div id="ModalWindow" class="modal"></div>
 
 
+	</div>
 		<br><br><br><br>
 		<footer class = "text--center text--muted">
 			<div class="search__results">
@@ -31,10 +45,8 @@
 	            <p class="meta"> This application uses demo key provided by <a href="http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7">TheAudioDB</a></p>
 				<p class=> Copyright &copy; 2018 <a href="https://github.com/eeshagoyal/PrimaSeller-JS-test">source</a>. All rights reserved.</p>
 				<br>
-            </div>
+	        </div>
 		</footer>
-	</div>
-
 	<script type="text/javascript" src="js/artist.js"></script>
 </body>
 </html>

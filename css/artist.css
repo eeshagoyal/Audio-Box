@@ -1,0 +1,218 @@
+/*------------------------------------------------------*/
+/* Styling for basic HTML tags */
+/*------------------------------------------------------*/
+
+body{
+    /*
+    background: #b4c1b4 ;
+    linear-gradient(135deg,#b4c1b4 0%, #4c4c4c 100%);*/
+    overflow-y: scroll;
+}
+footer{
+    position:absolute;
+   bottom:0;
+   width:100%;
+   height:50px;   /* Height of the footer */
+
+}
+
+a{
+    color:#4c4c4c;
+}
+a:hover{
+    color:#fff;
+}
+
+/*------------------------------------------------------*/
+/* Shifting Results to right
+/*------------------------------------------------------*/
+
+#result-list{
+  padding: 0 70px;
+  width: 55%;
+  margin: 15px auto 0;
+  position: right;
+  z-index: 1;
+  float: right;
+
+  @media screen and (min-width: 768px) {
+    padding: 0;
+    width: 75%;
+    margin-top: 40px;
+  }
+}
+
+
+
+/*------------------------------------------------------*/
+/* Tracks List
+/*------------------------------------------------------*/
+#trackname{
+    display: inline;
+    float: : left;
+    line-height: 200%;
+}
+#duration {
+    display: inline;
+    float: right;
+    padding-right: 100px;
+
+}
+
+/*------------------------------------------------------*/
+/* Modal Window */
+/*------------------------------------------------------*/
+.modal {
+    display: none; /* Hidden by default */
+
+    z-index: 7; /* Sit on top */
+    
+     position: fixed;
+
+    left : 38%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: solid black; /* Fallback color */
+
+    width: 60%;
+}
+
+/* Modal Content */
+.modal-content {
+    color: #fff;
+    background-color:#323232;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #000;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #c4c4c4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*------------------------------------------------------*/
+/* Artist Profile Card
+/*------------------------------------------------------*/
+
+#profile-wrap {
+    position: absolute;
+    margin: 0 auto;
+    top: 70%;  left: 20px;
+    text-align: center;
+    height: 460px;
+    width: 450px;
+    z-index: 5;
+}
+.profile-overlay {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 10px;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: 2;
+    border-radius: 50%;
+    display: block;
+    width: 280px;
+    height: 280px;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+       -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+            box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.4);
+}
+.profile-image {
+    position: absolute;
+    margin: 0 auto;
+    margin-top: 10px;
+    top: 0; bottom: 0; left: 0; right: 0;
+    z-index: 0;
+    display: block;
+    height: 280px;
+    width: 280px;
+    border-radius: 50%;
+    background-size: 50%;
+    background: 0 -30;
+    overflow: hidden;
+    transition: all ease 0.3s;
+}
+#profile-wrap:hover .profile-image {
+    background-position: 0 -29px;
+    border-radius: 0;
+    margin-top: -15px;
+    height: 460px;
+    width: 320px;
+    z-index: 1;
+}
+#profile-wrap:hover .profile-name h2 {
+    font-size: 36px;
+    margin-top: 280px;
+}
+
+#profile-wrap:hover .profile-name h2 span {
+    opacity: 0;
+}
+#profile-wrap:hover .profile-social {
+    opacity: 1;
+    margin-bottom: -35px;
+}
+
+.profile-name h2 {
+    position: relative;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 46px;
+    font-weight: 800;
+    margin: 0;
+    margin-top: 295px;
+    z-index: 5;
+    transition: all ease 0.3s;
+}
+.profile-name h4 {
+    font-size: 18px;
+    display: block;
+    font-weight: 400;
+    margin: 5px;
+    transition: all ease 0.3s;
+}
+.profile-social {
+    position: relative;
+    opacity: 0;
+    transition: all ease 0.3s;
+    padding: 0 0 20px 0;
+    z-index: 5;
+}
+.profile-social ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.profile-social ul li {
+    display: inline-block;
+    margin: 0;
+}
+.profile-social ul li a {
+    width: 40px;
+    height: 40px;
+    display: block;
+    -webkit-border-radius: 50%;
+       -moz-border-radius: 50%;
+            border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    background: #303030;
+    color: white;
+}
+.profile-social ul li a:hover {
+    background: #7b1733;
+}
+
