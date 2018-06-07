@@ -3,7 +3,8 @@
 
 ## AudioBox
 
-	This Web Application uses the AudioDB API http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7 to search for artist details and view Albums and Track details.
+	This Web Application uses the AudioDB API http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7 
+	to search for artist details and view Albums and Track details.
 	HTML is loaded dynamically based on API results using JAvaScript Template Literals and XMLHttpRequest.
 
 
