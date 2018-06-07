@@ -76,11 +76,11 @@ function loadcards(event) {
   	//CORS 
 	request.withCredentials = true;
 	request.responseType = "json";
-
+*/
 	//CONTENT TYPE - Preflight Response
 	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	request.setRequestHeader('Accept', 'application/json');
-*/
+
 
 	request.send();
 
