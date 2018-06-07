@@ -18,3 +18,30 @@ Evaluation Criteria :-
 
 	Your submission will be evaluated on your code – structure, organization and modularity, how closely it meets the requirements we have described above, error handling, visual layout. We encourage you to try and make the APP responsive so that it displays well on a mobile browser.
 
+
+##Documentation :
+Page 1 : 
+	Page 1 consists of a search bar that can be used to search for any artist.
+	To submit a search the user can either press the enter key or click on the search icon.
+	The search results are loaded dynamically using template literals in the JS code. 
+	The results are showed in a paginated manner with each page consisting of 4 cards(results)
+	Arrow keys on either side of the result can be used to navigate
+	The last page shows that there are no more results. 
+	Each result consists of artist picture, details, and a View Albums button.
+	The view albums button is stylised using CSS and sends a request to load the next page.
+	
+Page 2: 
+	Page 2 consists of 2 main frames.
+	The left side of the page contains details about the selected Artist.
+		Hovering over the artist icon gives provides details about the artist 
+		It also contains all the social links 
+	The right side of the page consists od all the album details
+		The search results are loaded dynamically using template literals in the JS code. 
+		The results are showed in a paginated manner with each page consisting of 4 cards(results)
+		Arrow keys on either side of the result can be used to navigate
+		The last page shows that there are no more results. 
+		Each result consists of artist picture, details, and a View Tracks button.
+	Clicking on the View Tracks button launches a modal window 
+		This contains the list of all the tracks in the Album along with their duration.
+
+	
