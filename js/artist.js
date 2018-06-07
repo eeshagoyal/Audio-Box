@@ -4,14 +4,23 @@ const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 //-------------------------------------------------------------------------
 
  var url = window.location.href;
- var qparts = url.split("?");
+ var qparts = url.split("?")
+ qparts = qparts[1].split("+");
 
  if(qparts.length > 0 ){
- 	ArtistID = qparts[1];
- 	console.log(ArtistID);
+ 	var ArtistID = qparts[0],
+ 		page_number = qparts[1],
+ 		pgno = page_number-1,
+ 		page_size =4,
+ 		i = pgno*page_size, 
+ 		j = (pgno+1)*page_size,
+ 		max_page_number;
+ 	console.log(pgno, ArtistID ,i,j);
  }
  else
  	console.log('ERROR : no artist ID found.');
+
+
 
 
 loadArtistDetails();
@@ -62,10 +71,15 @@ function loadTracksDetails(AlbumID, AlbumYear){
 	var request = new XMLHttpRequest();
 	request.open('GET', trackURL + AlbumID, true); 
 	//async=true
-	
-	//CONTENT TYPE - main errors !
+/*
+	//CORS
+	request.withCredentials = true;
+	request.responseType = "json";
+
+	//CONTENT TYPE - Preflight Response
 	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	request.setRequestHeader('Accept', 'application/json');
+*/
 
 	request.send();
 
@@ -124,32 +138,65 @@ function loadAllAlbums(event) {
 
 	var request = new XMLHttpRequest();
 	request.open('GET', albumURL + ArtistID, true); //async=true
-	
-	//CONTENT TYPE - main errors !
+
+/*
+	//CORS
+	request.withCredentials = true;
+	request.responseType = "json";
+
+	//CONTENT TYPE - Preflight Response
 	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	request.setRequestHeader('Accept', 'application/json');
-
+*/
 	request.send();
 
 	request.onload = function () {
 		var data = JSON.parse(request.responseText);
-
 		console.log(data["album"][0].strAlbum);
-		console.log(data["album"].length);
+		max_page_number = Math.ceil(data["album"].length/page_size);
+		console.log(max_page_number);
+		
 
 		document.getElementById("result-list").innerHTML = `
-					<ul class="card">
-						${data["album"].map(renderList).join('')}
-					</ul>
-					<div class="text--center">
-						<p class="text--muted">No more results.</p>
-					</div>	
-				`;
+					<table style="width:100%;"><tr>
+						<td> <a href="artist.html?${ArtistID+`+${page_number>1? parseInt(page_number-1) : page_number}`}"><i class="fa fa-angle-left icon-3x" style="font-size: 80px;"></i></a></td>
+						<td>
+							<div id="nomore" class="text--center"></div>
+							<ul id = "card" class="card">
+								${data["album"].slice(`${i}`,`${j}`).map(renderList).join('')};
+							</ul>
+						</td>
+						<td><a href="artist.html?${ArtistID+`+${page_number<max_page_number? parseInt(page_number)+1 : page_number}`}"><i class="fa fa-angle-right icon-3x" style="font-size:80px;"></i></a></td></tr>
+					</table>
+			`;
+
+		if(page_number==max_page_number)
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted">No more results.</p>
+				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
+			`;
+		}
+		else if(page_number < max_page_number)
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
+			`;
+		}
+		else
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted"> no result found ! go back to home page.</p>
+			`;
+		}
+
+
 	}
 	request.onerror = function () {
 		console.log(request);
 	}
 }
+
 
 
 function renderArtist(data){
@@ -190,14 +237,19 @@ function renderArtist(data){
 
 
 function loadArtistDetails(event){
+
 	var request = new XMLHttpRequest();
 	request.open('GET', artistURLbyID + ArtistID, true); 
 	//async=true
-	
-	//CONTENT TYPE - main errors !
+/*
+	//CORS
+	request.withCredentials = true;
+	request.responseType = "json";
+
+	//CONTENT TYPE - Preflight Response
 	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	request.setRequestHeader('Accept', 'application/json');
-
+*/
 	request.send();
 
 	request.onload = function () {

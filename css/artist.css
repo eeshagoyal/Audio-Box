@@ -20,18 +20,27 @@ a{
     color:#4c4c4c;
 }
 a:hover{
-    color:#fff;
+    color:#666666;
 }
 
+
 /*------------------------------------------------------*/
-/* Shifting Results to right
+/* Arrow icons
+/*------------------------------------------------------*/
+
+.fa-angle-left, .fa-angle-right{
+    color: #61b876;
+}
+/*------------------------------------------------------*/
+/* Shifting Results to right and top
 /*------------------------------------------------------*/
 
 #result-list{
-  padding: 0 70px;
-  width: 55%;
-  margin: 15px auto 0;
+  padding: 0 50px;
+  width: 60%;
+  margin: 10px auto 0;
   position: right;
+  top:0;
   z-index: 1;
   float: right;
 
@@ -41,7 +50,6 @@ a:hover{
     margin-top: 40px;
   }
 }
-
 
 
 /*------------------------------------------------------*/
@@ -109,7 +117,7 @@ a:hover{
 #profile-wrap {
     position: absolute;
     margin: 0 auto;
-    top: 70%;  left: 20px;
+    top: 60%;  left: 20px;
     text-align: center;
     height: 460px;
     width: 450px;
