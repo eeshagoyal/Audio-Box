@@ -3,17 +3,19 @@
 
 ## AudioBox
 
-This Web Application uses the AudioDB API http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7 to search for artist details and view Albums and Track details.
-HTML is loaded dynamically based on API results using JAvaScript Template Literals and XMLHttpRequest.
+	This Web Application uses the AudioDB API http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7 to search for artist details and view Albums and Track details.
+	HTML is loaded dynamically based on API results using JAvaScript Template Literals and XMLHttpRequest.
+
 
 
 ### Deployment
-Will be active soon. Runs into CORS eerors when deployed on Heroku or Github pages
+	Will be active soon. Runs into CORS eerors when deployed on Heroku or Github pages
+
 
 
 ## Prerequisites
-The repo can be cloned and run locally without having to download any pre requisites. 
-This Web Application uses plain Vanilla Javascript and CSS and does not use any new frameworks or libraries.
+	The repo can be cloned and run locally without having to download any pre requisites. 
+	This Web Application uses plain Vanilla Javascript and CSS and does not use any new frameworks or libraries.
 
 
 
@@ -37,6 +39,7 @@ This Web Application uses plain Vanilla Javascript and CSS and does not use any 
 ## Evaluation Criteria :-
 
 	Your submission will be evaluated on your code – structure, organization and modularity, how closely it meets the requirements we have described above, error handling, visual layout. We encourage you to try and make the APP responsive so that it displays well on a mobile browser.
+
 
 
 
@@ -76,8 +79,8 @@ This Web Application uses plain Vanilla Javascript and CSS and does not use any 
 
 ## Tests
 
-The app has been tested on Firefox, Chrome, Safari
-Automated Tests will be added soon.
+	The app has been tested on Firefox, Chrome, Safari.
+	Automated Tests will be added soon.
 
 
 
