@@ -6,6 +6,28 @@ var SearchInput = document.getElementById("search-bar");
 var submit = document.getElementById("search-button");
 
 
+ var url = window.location.href;
+ var qparts = url.split("?")
+
+var page_number; 
+ if(qparts.length > 1 ){
+ 	page_number = qparts[1];
+ }
+ else if(qparts.length ==1 || qparts[2]=="#"){
+ 	page_number = 1;
+
+ }
+ 	
+var  	page_size =4,
+		pgno = page_number-1,
+ 		i = pgno*page_size, 
+ 		j = (pgno+1)*page_size,
+ 		max_page_number;
+
+console.log(page_number, page_size, i, j)
+
+//-------------------------------------------------------------------------
+
 function ArtistPage(id) {
 	console.log('Artist ID is : '+ id);
 	location.href = "artist.html?"+id+"+1";
@@ -67,15 +89,55 @@ function loadcards(event) {
 		var data = JSON.parse(request.responseText);
 		console.log(data["artists"][0].strArtist);
 
+		max_page_number = Math.ceil(data["artists"].length/page_size);
+
+
 		document.getElementById("result-list").innerHTML = `
-					<ul class="card">
-						${data["artists"].map(renderList).join('')}
-					</ul>
+					<table style="width:100%;">
+					<tr>
+						<td>
+							<a href=" ${page_number>1 ? `index.html?${parseInt(page_number-1)}` : `#`}">
+								<i class="fa fa-angle-left icon-3x" style="font-size: 80px;"></i>
+							</a>
+						</td>
+						<td>
+							<div id="nomore" class="text--center"></div>
+							<ul id = "card" class="card">
+								${data["artists"].slice(`${i}`,`${j}`).map(renderList).join('')}
+							</ul>
+						</td>
+						<td>
+							<a href= " ${page_number<max_page_number ? `index.html?${parseInt(page_number)+1}` : `#`}">
+								<i class="fa fa-angle-right icon-3x" style="font-size:80px;"></i>
+							</a>
+						</td>
+					</tr>
+					</table>
 		
 					<div class="text--center">
 					  <p class="text--muted">No more results.</p>
 					</div>	
 				`;
+
+		if(page_number==max_page_number)
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
+			`;
+		}
+		else if(page_number < max_page_number)
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
+			`;
+		}
+		else
+		{
+			document.getElementById("nomore").innerHTML = `
+				<p class="text--muted"> no result found ! go back to home page.</p>
+			`;
+		}
+
 	}
 	request.onerror = function () {
 		console.log(request);

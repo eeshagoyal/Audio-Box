@@ -7,7 +7,7 @@ const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
  var qparts = url.split("?")
  qparts = qparts[1].split("+");
 
- if(qparts.length > 0 ){
+ if(qparts.length > 1){
  	var ArtistID = qparts[0],
  		page_number = qparts[1],
  		pgno = page_number-1,
