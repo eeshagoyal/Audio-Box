@@ -23,14 +23,14 @@ Evaluation Criteria :-
 Page 1 : 
 
 	Page 1 consists of a search bar that can be used to search for any artist.
-	To submit a search the user can either press the enter key or click on the search icon.
+		To submit a search the user can either press the enter key or click on the search icon.
 	The search results are loaded dynamically using template literals in the JS code. 
-	The results are showed in a paginated manner with each page consisting of 4 cards(results)
-	Arrow keys on either side of the result can be used to navigate
-	The last page shows that there are no more results. 
-	Each result consists of artist picture, details, and a View Albums button.
-	The view albums button is stylised using CSS and sends a request to load the next page.
-	
+		The results are showed in a paginated manner with each page consisting of 4 cards(results)
+		Arrow keys on either side of the result can be used to navigate
+		The last page shows that there are no more results. 
+		Each result consists of artist picture, details, and a View Albums button.
+		The view albums button is stylised using CSS and sends a request to load the next page.
+
 Page 2: 
 
 	Page 2 consists of 2 main frames.
