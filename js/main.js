@@ -8,7 +8,7 @@ var submit = document.getElementById("search-button");
 
 function ArtistPage(id) {
 	console.log('Artist ID is : '+ id);
-	location.href = "artist.html?"+id;
+	location.href = "artist.html?"+id+"+1";
 }
 
 
@@ -40,20 +40,25 @@ function loadcards(event) {
 	document.getElementById("result-list").innerHTML = `
 	<div class="loader"></div>
 	`;
-	console.log(SearchInput.value);
 
+	console.log(SearchInput.value);
+	var url = artistURLbyName + SearchInput.value;
 
 	// Cancel the default action, if needed
 	event.preventDefault();
 
 	var request = new XMLHttpRequest();
-	request.open('GET', artistURLbyName + SearchInput.value, true); 
-	//async=true
-	
-	
-	//CONTENT TYPE - main errors !
+	request.open('GET',url , true); //async=true
+
+/*	
+  	//CORS 
+	request.withCredentials = true;
+	request.responseType = "json";
+
+	//CONTENT TYPE - Preflight Response
 	request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 	request.setRequestHeader('Accept', 'application/json');
+*/
 
 	request.send();
 
