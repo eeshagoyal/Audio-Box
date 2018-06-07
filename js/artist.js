@@ -215,17 +215,17 @@ function renderArtist(data){
 			<div class="profile-social">
 				<ul>
 					<li>
-						<a href="${data["artists"][0].strTwitter}" title="Twitter" target="_blank">
+						<a href="http://${data["artists"][0].strTwitter}" title="Twitter" target="_blank">
 							<i class="fa fa-twitter"></i>
 						</a>
 					</li>
 					<li>
-						<a href="${data["artists"][0].strFacebook}" title="Facebook" target="_blank">
+						<a href="http://${data["artists"][0].strFacebook}" title="Facebook" target="_blank">
 							<i class="fa fa-facebook"></i>
 						</a>
 					</li>
 					<li>
-						<a href="${data["artists"][0].strWebsite}" title="Website" target="_blank">
+						<a href="http://${data["artists"][0].strWebsite}" title="Website" target="_blank">
 							<i class="fa fa-link"></i>
 						</a>
 					</li>
