@@ -61,6 +61,8 @@
 
 #### Page 2: 
 
+	The Audio Box logo on the top can be used to go back to the home page.
+
 	ARTIST DETAILS
 		* The left side of the page contains details about the selected Artist.
 		* Hovering over the artist icon gives provides details about the artist 
@@ -73,6 +75,7 @@
 		* Arrow keys on either side of the result can be used to navigate
 		* The last page shows that there are no more results. 
 		* Each result consists of artist picture, details, and a View Tracks button.
+
 	MODAL WINDOW
 		* Clicking on the View Tracks button launches a modal window 
 		* This contains the list of all the tracks in the Album along with their duration.
