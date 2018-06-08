@@ -1,6 +1,6 @@
-const artistURLbyID = "http://www.theaudiodb.com/api/v1/json/1/artist.php?i=";
-const albumURL = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
-const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
+const artistURLbyID = "https://www.theaudiodb.com/api/v1/json/1/artist.php?i=";
+const albumURL = "https://www.theaudiodb.com/api/v1/json/1/album.php?i=";
+const trackURL = "https://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 //-------------------------------------------------------------------------
 
  var url = window.location.href;
@@ -215,17 +215,17 @@ function renderArtist(data){
 			<div class="profile-social">
 				<ul>
 					<li>
-						<a href="http://${data["artists"][0].strTwitter}" title="Twitter" target="_blank">
+						<a href="https://${data["artists"][0].strTwitter}" title="Twitter" target="_blank">
 							<i class="fa fa-twitter"></i>
 						</a>
 					</li>
 					<li>
-						<a href="http://${data["artists"][0].strFacebook}" title="Facebook" target="_blank">
+						<a href="https://${data["artists"][0].strFacebook}" title="Facebook" target="_blank">
 							<i class="fa fa-facebook"></i>
 						</a>
 					</li>
 					<li>
-						<a href="http://${data["artists"][0].strWebsite}" title="Website" target="_blank">
+						<a href="https://${data["artists"][0].strWebsite}" title="Website" target="_blank">
 							<i class="fa fa-link"></i>
 						</a>
 					</li>

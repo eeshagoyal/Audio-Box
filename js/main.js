@@ -1,6 +1,6 @@
-const artistURLbyName = "http://www.theaudiodb.com/api/v1/json/1/search.php?s=";
-const albumURL = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
-const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
+const artistURLbyName = "https://www.theaudiodb.com/api/v1/json/1/search.php?s=";
+const albumURL = "https://www.theaudiodb.com/api/v1/json/1/album.php?i=";
+const trackURL = "https://www.theaudiodb.com/api/v1/json/1/track.php?m=";
 
 var SearchInput = document.getElementById("search-bar");
 var submit = document.getElementById("search-button");
