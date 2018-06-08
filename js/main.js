@@ -64,13 +64,13 @@ function loadcards(event) {
 	`;
 
 	console.log(SearchInput.value);
-	var url = artistURLbyName + SearchInput.value;
+	var api_url = artistURLbyName + SearchInput.value;
 
 	// Cancel the default action, if needed
 	event.preventDefault();
 
 	var request = new XMLHttpRequest();
-	request.open('GET',url , true); //async=true
+	request.open('GET',api_url , true); //async=true
 
 /*	
   	//CORS 
@@ -87,57 +87,66 @@ function loadcards(event) {
 	request.onload = function () {
 
 		var data = JSON.parse(request.responseText);
-		console.log(data["artists"][0].strArtist);
+		console.log(data);
 
-		max_page_number = Math.ceil(data["artists"].length/page_size);
+		if ( data["artists"] != null)	
+		{	
+			console.log(data["artists"][0].strArtist);
+
+			max_page_number = Math.ceil(data["artists"].length/page_size);
 
 
-		document.getElementById("result-list").innerHTML = `
-					<table style="width:100%;">
-					<tr>
-						<td>
-							<a href=" ${page_number>1 ? `index.html?${parseInt(page_number-1)}` : `#`}">
-								<i class="fa fa-angle-left icon-3x" style="font-size: 80px;"></i>
-							</a>
-						</td>
-						<td>
-							<div id="nomore" class="text--center"></div>
-							<ul id = "card" class="card">
-								${data["artists"].slice(`${i}`,`${j}`).map(renderList).join('')}
-							</ul>
-						</td>
-						<td>
-							<a href= " ${page_number<max_page_number ? `index.html?${parseInt(page_number)+1}` : `#`}">
-								<i class="fa fa-angle-right icon-3x" style="font-size:80px;"></i>
-							</a>
-						</td>
-					</tr>
-					</table>
-		
-					<div class="text--center">
-					  <p class="text--muted">No more results.</p>
-					</div>	
+			document.getElementById("result-list").innerHTML = `
+						<table style="width:100%;">
+						<tr>
+							<td>
+								<a href=" ${page_number>1 ? `index.html?${parseInt(page_number-1)}` : `#`}">
+									<i class="fa fa-angle-left icon-3x" style="font-size: 80px;"></i>
+								</a>
+							</td>
+							<td>
+								<div id="nomore" class="text--center"></div>
+								<ul id = "card" class="card">
+									${data["artists"].slice(`${i}`,`${j}`).map(renderList).join('')}
+								</ul>
+							</td>
+							<td>
+								<a href= " ${page_number<max_page_number ? `index.html?${parseInt(page_number)+1}` : `#`}">
+									<i class="fa fa-angle-right icon-3x" style="font-size:80px;"></i>
+								</a>
+							</td>
+						</tr>
+						</table>
+			
+						<div class="text--center">
+						  <p class="text--muted">No more results.</p>
+						</div>	
+					`;
+
+			if(page_number==max_page_number)
+			{
+				document.getElementById("nomore").innerHTML = `
+					<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
 				`;
-
-		if(page_number==max_page_number)
-		{
-			document.getElementById("nomore").innerHTML = `
-				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
-			`;
-		}
-		else if(page_number < max_page_number)
-		{
-			document.getElementById("nomore").innerHTML = `
-				<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
-			`;
+			}
+			else if(page_number < max_page_number)
+			{
+				document.getElementById("nomore").innerHTML = `
+					<p class="text--muted">-------${page_number} / ${max_page_number}-------</p>
+				`;
+			}
+			else
+			{
+				document.getElementById("nomore").innerHTML = `
+					<p class="text--muted"> no result found ! go back to home page.</p>
+				`;
+			}
 		}
 		else
 		{
-			document.getElementById("nomore").innerHTML = `
-				<p class="text--muted"> no result found ! go back to home page.</p>
-			`;
+			document.getElementById("result-list").innerHTML = ``;
+			window.alert("Artist not found. Please try searching for another music artist.");
 		}
-
 	}
 	request.onerror = function () {
 		console.log(request);
