@@ -1,10 +1,3 @@
- window.onload=function(){
-         if(window.location.protocol==="https:")
-             window.location.protocol="http";
- }
-
-
-
 const artistURLbyID = "http://www.theaudiodb.com/api/v1/json/1/artist.php?i=";
 const albumURL = "http://www.theaudiodb.com/api/v1/json/1/album.php?i=";
 const trackURL = "http://www.theaudiodb.com/api/v1/json/1/track.php?m=";
