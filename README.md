@@ -9,21 +9,16 @@
 
 
 
-### Deployment
-	Will be active soon. Runs into CORS eerors when deployed on Heroku or Github pages
-
-
-
 ## Prerequisites
-	The repo can be cloned and run locally without having to download any pre requisites. 
-	This Web Application uses plain Vanilla Javascript and CSS and does not use any new frameworks or libraries.
+	This Web Application uses plain Vanilla Javascript and CSS and does not use any pre installations.
 
 
 
 
 ## Problem Statement :-
 
-	We will build a small and simple artist search APP using the audiodb APIs http://www.theaudiodb.comforumviewtopic.php?f=6&t=7). 
+	We will build a small and simple artist search APP using the audiodb API 
+	http://www.theaudiodb.comforumviewtopic.php?f=6&t=7). 
 	You can use the test API KEY “1” for testing.
 	
 	The app has three screen:
