@@ -10,8 +10,8 @@
 
 
 ### Deployment
-	Will be active soon. Runs into CORS eerors when deployed on Heroku or Github pages
-
+	Deployed using Heroku.
+	http://audioboxsearch.herokuapp.com/index.html
 
 
 ## Prerequisites
