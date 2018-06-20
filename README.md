@@ -8,22 +8,21 @@
 	HTML is loaded dynamically based on API results using JAvaScript Template Literals and XMLHttpRequest.
 
 
-
 ### Deployment
 	Deployed using Heroku.
 	http://audioboxsearch.herokuapp.com/index.html
 
 
 ## Prerequisites
-	The repo can be cloned and run locally without having to download any pre requisites. 
-	This Web Application uses plain Vanilla Javascript and CSS and does not use any new frameworks or libraries.
+	This Web Application uses plain Vanilla Javascript and CSS and does not use any pre installations.
 
 
 
 
 ## Problem Statement :-
 
-	We will build a small and simple artist search APP using the audiodb APIs http://www.theaudiodb.comforumviewtopic.php?f=6&t=7). 
+	We will build a small and simple artist search APP using the audiodb API 
+	http://www.theaudiodb.comforumviewtopic.php?f=6&t=7). 
 	You can use the test API KEY “1” for testing.
 	
 	The app has three screen:
