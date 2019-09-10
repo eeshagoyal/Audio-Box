@@ -1,7 +1,4 @@
-# PrimaSeller-JS-test
-
-
-## AudioBox
+# AudioBox
 
 	This Web Application uses the AudioDB API http://www.theaudiodb.com/forum/viewtopic.php?f=6&t=7 
 	to search for artist details and view Albums and Track details.
